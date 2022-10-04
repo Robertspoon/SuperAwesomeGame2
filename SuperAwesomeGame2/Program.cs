@@ -12,6 +12,7 @@ namespace SuperAwesomeGame2
         static int Health;
         static int EnemyDMG;
         static int Shield;
+        static float multiplier;
         static void Main(string[] args)
         {
             Console.WriteLine("The Super Awesome Real Game");
@@ -21,20 +22,58 @@ namespace SuperAwesomeGame2
             Shield = 100;
             int EnemyValue;
             EnemyDMG = 20;
+            multiplier = 2;
 
             ShowHUD();
             Console.WriteLine();
             Console.WriteLine("You encounter an enemy!");
-            TakeDamage(EnemyDMG);
+            Console.WriteLine();
+            TakeDamage(20);
             ShowHUD();
+            Console.WriteLine();
+
 
             Console.WriteLine("You defeated the enemy!");
+            Console.WriteLine("The enemy had a multiplier!");
+            Console.WriteLine();
+            AddScoreMulti(100);
+            ShowHUD();
+            Console.WriteLine();
+
+
+            Console.WriteLine("You found a Small Shield Restoration Unit!");
+            Restore(20);
+            Console.WriteLine();
+            ShowHUD();
+            Console.WriteLine();
+
+
+            Console.WriteLine("You encountered a Goblin!");
+            Console.WriteLine();
+            TakeDamage(50);
+            ShowHUD();
+            Console.WriteLine();
+
+
+            Console.WriteLine("You strike a mighty blow, defeating the Goblin!");
+            Console.WriteLine();
+            AddScore(250);
+            ShowHUD();
+
+
+
 
 
             Console.ReadKey(true);
         }
 
-      static void AddScore(int PointsGained int Multiplier)
+      static void AddScoreMulti(float PointsGainedFloat)
+        {
+            PointsGainedFloat = PointsGainedFloat * multiplier;
+            int PointsGainedInt = (int)PointsGainedFloat;
+            score = score + PointsGainedInt;
+        }
+ 
 
       static void ShowHUD()
         {
@@ -47,11 +86,18 @@ namespace SuperAwesomeGame2
         }
       static void TakeDamage(int damage)
         {
-            Shield = Shield - EnemyDMG;
+            Shield = Shield - damage;
         }
      
-      
+      static void Restore(int SmallRestore)
+        {
+            Shield = Shield + SmallRestore;
+        }
 
+      static void AddScore(int PointsGained)
+        {
+            score = score + PointsGained;
+        }
 
                 
     }
