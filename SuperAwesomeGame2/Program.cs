@@ -28,8 +28,14 @@ namespace SuperAwesomeGame2
             TakeDamage(EnemyDMG);
             ShowHUD();
 
+            Console.WriteLine("You defeated the enemy!");
+
+
             Console.ReadKey(true);
         }
+
+      static void AddScore(int PointsGained int Multiplier)
+
       static void ShowHUD()
         {
             Console.WriteLine("[-------------]");
@@ -43,6 +49,11 @@ namespace SuperAwesomeGame2
         {
             Shield = Shield - EnemyDMG;
         }
+     
+      
+
+
+                
     }
 
 }
